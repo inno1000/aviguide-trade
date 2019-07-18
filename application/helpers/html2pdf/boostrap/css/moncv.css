@@ -1,0 +1,9 @@
+article.col-sm-10, nav.col-sm-2{line-height: 100px;}
+
+body{margin-top:10px;}
+
+img{width: 100%;}
+
+#tab1 th, #tab2 th, #tab3 th{
+	text-align: center;
+}

@@ -1,0 +1,17 @@
+input {
+    font-size: 25px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 3px;
+    background: #fff;
+    border: 1px solid #aac;
+}
+
+input.time {
+    width: 200px;
+}
+
+input.date {
+    width: 200px;
+}

@@ -1,0 +1,15 @@
+/*[class*="col-"],footer{
+	background-color:lightgreen;
+	border:1px solid black;
+	border-radius:6px;
+	line-height:30px;
+	text-align:center;
+}*/
+
+article.col-sm-10, nav.col-sm-2{line-height: 100px;}
+
+body{margin-top:10px;}
+
+[class*="col-"]{margin-bottom: 20px;}
+
+img{width: 100%;}
