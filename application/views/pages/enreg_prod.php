@@ -11,9 +11,9 @@
        </div>
        <!-- Map Area -->
        <div class="col-lg-8 col-md-8 col-sm-12 m-auto">
-                    <div class="col-12">
-                <a href="<?php echo site_url('produit/save_typeProduit')?>" class="btn btn-success article-btn pull-right"><i class="fa fa-plus pr-2" aria-hidden="true"></i> Ajouter un type de produit</a>
-            </div>
+           <!-- div class="col-12">
+               <a href="<?php echo site_url('produit/save_typeProduit')?>" class="btn btn-success article-btn pull-right"><i class="fa fa-plus pr-2" aria-hidden="true"></i> Ajouter un type de produit</a>
+           </div -->
            <div class="contact-form">
                <div class="contact-form-title">
                    <h6>Enregistrez un produit ici...</h6>
@@ -21,11 +21,11 @@
                <form action="<?php echo site_url('produit/save_produit')?>" method="post" enctype="multipart/form-data" role="form">
                 <!-- "<?php base_url()?>produit/save_produit" -->
                    <div class="row">
-                       <div class="col-12">
+                       <div class="col-12 col-md-6">
                            <input type="text"  name="nom_prod" class="form-control" placeholder="Nom du produit">
                            <?php echo form_error('nom_prod') ?>
                        </div>
-                       <div class="col-12 col-md-5">
+                       <div class="col-12 col-md-6">
                           <select class="form-control" name="type_prod">
                               <option selected disabled value="">Sélectionnez le type de produit</option>
                                 <?php foreach ($type_produit as $item){ ?>
@@ -34,12 +34,12 @@
                           </select>
                           <?php echo form_error('type_prod')?>
                          </div>
-                       <div class="col-12 col-md-5">
+                       <div class="col-12 col-md-6">
                            <input type="number"  name="pu_prod" class="form-control" placeholder="Prix unitaire du produit en FCFA">
                            <?php echo form_error('pu_prod') ?>
                        </div>
-                       <div class="col-12 col-md-2">
-                           <input type="number"  name="qte_prod" class="form-control" placeholder="Qte">
+                       <div class="col-12 col-md-6">
+                           <input type="number"  name="qte_prod" class="form-control" placeholder="Quantité">
                            <?php echo form_error('qte_prod') ?>
                        </div>
                        <div class="col-12 col-md-6">
@@ -54,7 +54,7 @@
                            <?php echo form_error('details_Prod') ?>
                        </div>
                        <div class="col-12">
-                           <button type="submit" class="btn dorne-btn" name="save">Enregistrer</button><input type="text" value="1" name="vendeur" hidden="true">
+                           <button type="submit" class="btn btn-outline-success" name="save">Enregistrer</button><input type="text" value="1" name="vendeur" hidden="true">
                        </div>
                    </div>
                </form>

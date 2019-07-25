@@ -26,6 +26,6 @@ Class Connexion extends MY_Controller{
             }
         }
         
-        $this->render('connexion', "Authentification", false);
+        $this->render('connexion', "Authentification");
     }
 }

@@ -407,7 +407,6 @@ li {
     width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.05);
     background-color: transparent;
-    height: 50px;
     color: #fff;
     padding: 0 20px;
     font-size: 14px;
@@ -579,10 +578,13 @@ li {
 .hero-search-form .tab-content .tab-pane {
     padding: 35px;
     background-color: rgba(43, 128, 81, 0.65);
+    border-radius: 30px;
 }
 
 .filtre {
     padding: 35px;
+    width: 80%;
+    margin: auto;
 }
 
 .filtre h6 {
@@ -599,9 +601,7 @@ li {
 
 
 .filtre form .custom-select {
-    
-    border-radius: 0;
-    padding: 0 80px 0 40px;
+
     color: #475847;
     font-size: 12px;
     font-weight: 600;
@@ -629,8 +629,6 @@ li {
 
 
 .hero-search-form .tab-content .tab-pane form .custom-select {
-    height: 52px;
-    border-radius: 0;
     padding: 0 80px 0 40px;
     color: #728c72;
     font-size: 12px;
@@ -787,6 +785,8 @@ li {
 }
 
 .single-features-area {
+    border-bottom-right-radius: 30px;
+    border: 2px groove;
     margin-bottom: 20px;
     position: relative;
     z-index: 1;
@@ -1093,7 +1093,6 @@ li {
 }
 
 .contact-form .form-control {
-    height: 50px;
     font-size: 12px;
     color: #72728c;
     font-weight: 600;
@@ -1171,12 +1170,7 @@ li {
 }
 
 .explore-search-form .tab-content .tab-pane form .custom-select {
-    height: 52px;
-    border-radius: 0;
-    padding: 0 80px 0 40px;
     color: #6f9687;
-    font-size: 12px;
-    font-weight: 600;
     border: none;
     width: 100%;
     margin-bottom: 30px;
@@ -1249,10 +1243,7 @@ li {
 .book-a-table-widget .custom-select {
     width: 100%;
     border: none;
-    border-radius: 0;
     margin-bottom: 30px;
-    height: 50px;
-    font-size: 14px;
     color: #72728c;
     padding: 0 30px;
 }
@@ -1262,7 +1253,6 @@ li {
     border: none;
     border-radius: 0;
     margin-bottom: 30px;
-    height: 50px;
     font-size: 14px;
     color: #72728c;
     padding: 0 10px;

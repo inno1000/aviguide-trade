@@ -81,6 +81,13 @@ class produit extends MY_controller {
         $this->render('publications');
     }
 
+    public function detail_produit($id=null)
+    {
+    	$produits = $this->mProd->get_Prod($id);
+    	$this->data['item'] = !empty($produits[0])?$produits[0]:redirect();
+        $this->render('detail_produit');
+    }
+
     public function save_typeProduit()
     {
        	$this->form_validation->set_rules('nom_typeProd', 'Nom du type de produit', 'trim|required');

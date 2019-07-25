@@ -30,7 +30,7 @@ Class Auth_model extends CI_Model{
                 break;
         }
         
-        $this->db->where(valid_email($login)?"email":"login", $login);
+        $this->db->where("email", $login);
         
         if(count($result = $this->db->get()->result()) == 1 && $this->phpass->check($password, $result[0]->password)){
             return $result[0];
