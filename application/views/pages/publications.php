@@ -70,5 +70,10 @@
         <?php } ?>
     </div>
     </div>
+    <div class="feature-content d-flex align-items-right">
+        <?php
+            echo "<li>". $links."</li>";
+        ?>
+    </div>
 </section>
 <!-- ***** Features Destinations Area End ***** -->

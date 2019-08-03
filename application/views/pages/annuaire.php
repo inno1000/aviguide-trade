@@ -41,19 +41,39 @@
 
             </div>
         </div>
+        <?php foreach ($contact as $item) { ?>
         <div class="col-sm-12 col-lg-3 col-md-4">
             <div class="single-features-area p-2 contact">
                 <!-- Price -->
 
+                    <h6 class="text-center text-success p-2"><?= $item->prenom ?> <?= $item->nom ?></h6>
+                            <span class="pt-2"><b>Télephone: </b><?= $item->telephone ?></span><br>
+                            <span class="pt-2"><b>Fax: </b><?= $item->fax ?></span><br>
+                            <span class="pt-2"><b>Email: </b><?= $item->email ?></span><br>
+                            <span class="pt-2"><b>Site web: </b><?= $item->site_web ?></span><br>
+                            <span class="pt-2"><b>Adresse: </b><?= $item->Adresse ?></span><br>
+                            <span><b>Activité: </b><?= $item->Activites ?></span>
+                </div>
+            </div>
+        <?php } ?>
+        <!-- <div class="col-sm-12 col-lg-3 col-md-4">
+            <div class="single-features-area p-2 contact">
                     <h6 class="text-center text-success p-2">Ferme avicole du centre de la ville</h6>
                             <span class="pt-2"><b>Télephone: </b>+237 699 994 570</span><br>
+                            <span class="pt-2"><b>Fax: </b>+237 699 994 570</span><br>
                             <span class="pt-2"><b>Email: </b>batourimaidadi@gmail.com</span><br>
+                            <span class="pt-2"><b>Site web: </b>batourimaidadi@gmail.com</span><br>
                             <span class="pt-2"><b>Adresse: </b>Dang, Ngaoundéré, Cameroun</span><br>
                             <span><b>Activité: </b>Vente d'aliments composés pour volaille</span>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
+    </div>
+    <div class="feature-content d-flex align-items-right">
+        <?php
+            echo "<li>". $links."</li>";
+        ?>
     </div>
 </section>
 <!-- ***** Features Destinations Area End ***** -->

@@ -7,12 +7,13 @@ class produit extends MY_controller {
         $this->load->library('form_validation', 'upload');
         $this->load->model('produit_model','mProd');
         $this->load->helper(array('form','url'));
+        $this->load->library("pagination");
         // $this->session->set_flashdata('item', 'value');
     }
 
 	function index() {
 		$this->data['type_produit'] = $this->mProd->get_typeProd();
-		$this->data['produits'] = $this->mProd->get_Prod();
+		// $this->data['produits'] = $this->mProd->get_Prod();
 		$this->render('enreg_prod', "Enregistrement d'un produit");
 	}
 
@@ -59,14 +60,14 @@ class produit extends MY_controller {
 	            $insertProd=$this->mProd->insert_produit($data);
 
 	            if($insertProd){
-	            	// $this->session->set_flashdata('success_msg', 'Produit enregistré...');
 	            	echo "OK";
-	            	redirect(site_url('produit/publications'));
+	            	redirect(site_url('publications'));
 	            }else{
 	            	echo "Bad";
 	            	// $this->session->set_flashdata('error_msg', "Échec lors de l'enregistrement");
 	            }
-				$this->render('publications', $data);
+	            redirect('Welcome/publications');
+				// $this->render('publications', $data);
 				$this->data['produits'] = $this->mProd->get_Prod();
 			}else {
 				$this->data['error'] = "Veuillez remplir les champs obligatoires";
@@ -75,15 +76,9 @@ class produit extends MY_controller {
 		
 	}
 
-    public function publications()
+    public function detail_produit($id=null, $r=null, $s=null)
     {
-    	$this->data['produits'] = $this->mProd->get_Prod();
-        $this->render('publications');
-    }
-
-    public function detail_produit($id=null)
-    {
-    	$produits = $this->mProd->get_Prod($id);
+    	$produits = $this->mProd->get_Prod($id,$r,$s);
     	$this->data['item'] = !empty($produits[0])?$produits[0]:redirect();
         $this->render('detail_produit');
     }

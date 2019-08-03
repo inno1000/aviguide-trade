@@ -73,7 +73,7 @@
               <?php } ?>
 
             <div class="col-12">
-                <a href="<?= site_url("produit/publications") ?>" class="btn btn-success article-btn pull-right"><i class="fa fa-plus pr-2" aria-hidden="true"></i> Afficher plus de publications</a>
+                <a href="<?= site_url("publications") ?>" class="btn btn-success article-btn pull-right"><i class="fa fa-plus pr-2" aria-hidden="true"></i> Afficher plus de publications</a>
             </div>
           </div>
         </div>
