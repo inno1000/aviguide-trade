@@ -14,12 +14,15 @@ class Inscription_model extends CI_Model
 
     }
 
-    public function saveData($data, $table = "client"){
-        if($this->db->insert($table, $data))
-            return $this->db->insert_id();
-        else
-            return NULL;
+    public function saveData($data,$table){
+        $this->db->insert($table,$data);
+        return $this->db->insert_id();
     }
+
+
+
+
+
 
     public function getRecrutedAbonne(){
 
