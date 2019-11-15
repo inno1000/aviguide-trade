@@ -1,0 +1,30 @@
+[33mcommit 3749af1478d1e3ce20e8c897e6581cc8c2c85dcc[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: TSASSE F. Carin <tfcarin02@gmail.com>
+Date:   Sat Aug 3 15:13:32 2019 +0100
+
+    Enregistrement et affichage des contacts
+
+[33mcommit ffbfe027f0290344c0018f072c24e7c5f1c81a79[m[33m ([m[1;31morigin/master[m[33m)[m
+Merge: 3e4f2d5 d111dcb
+Author: inno bato <batourimaidadi@gmail.com>
+Date:   Thu Jul 25 09:11:18 2019 +0100
+
+    Merge branch 'master' of github.com:inno1000/aviguide-trade
+
+[33mcommit d111dcba7b77dafb4bee88cd31b9c39dc0a37e7d[m
+Author: inno1000 <41233278+inno1000@users.noreply.github.com>
+Date:   Thu Jul 25 11:07:20 2019 +0200
+
+    test
+
+[33mcommit 3e4f2d569938f7dfb2dc3c940c5520355d39e400[m
+Author: inno bato <batourimaidadi@gmail.com>
+Date:   Thu Jul 25 09:09:36 2019 +0100
+
+    modification et harmonisation du projet
+
+[33mcommit a4e2efbbc6584bcdee57e703f9c0d285f2721b92[m
+Author: TSASSE F. Carin <tfcarin02@gmail.com>
+Date:   Thu Jul 18 20:52:32 2019 +0100
+
+    Enregistrement et affichage des produits.

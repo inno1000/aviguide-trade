@@ -13,19 +13,28 @@
        <div class="contact-form">
                <div class="contact-form-title">
                    <h6>Connectez-vous</h6>
+                   <hr>
                </div>
+                <?php if(isset($error) && is_array($error)) { ?>
+                    <div class="alert alert-danger" role="alert">
+                        <h4 class="alert-heading">Erreur</h4>
+                        <?php foreach($error as $e){ ?>
+                            <p><?= $e ?></p>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
                <form action="" method="post">
                    <div class="row">
                        <div class="col-12">
-                           <input type="text" required name="email" value="<?php echo set_value('email') ?>" class="form-control" placeholder="Votre adresse email">
+                           <input type="text" required name="email" value="<?php echo set_value('email') ?>" class="form-control" placeholder="Entrez votre adresse email">
                            <?php echo form_error('email') ?>
                        </div>
                        <div class="col-12">
-                           <input type="password" required name="password" value="<?php echo set_value('password') ?>" class="form-control" placeholder="Mot de passe">
+                           <input type="password" required name="password" value="<?php echo set_value('password') ?>" class="form-control" placeholder="Entrez votre mot de passe">
                            <?php echo form_error('password') ?>
                        </div>
                        <div class="col-12">
-                           <button type="submit" name="connecter" class="btn dorne-btn">Connecter</button>
+                           <button type="submit" class="btn dorne-btn">Connecter</button>
                        </div>
                    </div>
                </form>

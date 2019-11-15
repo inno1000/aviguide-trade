@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le :  lun. 08 juil. 2019 à 16:28
--- Version du serveur :  10.1.36-MariaDB
--- Version de PHP :  7.0.32
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jul 18, 2019 at 07:37 PM
+-- Server version: 5.7.19
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,15 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `db_aviguide`
+-- Database: `db_aviguide`
 --
-CREATE DATABASE IF NOT EXISTS `db_aviguide` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `db_aviguide`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `administrateur`
+-- Table structure for table `administrateur`
 --
 
 DROP TABLE IF EXISTS `administrateur`;
@@ -46,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `administrateur` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `adresse`
+-- Table structure for table `adresse`
 --
 
 DROP TABLE IF EXISTS `adresse`;
@@ -62,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `adresse` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `client`
+-- Table structure for table `client`
 --
 
 DROP TABLE IF EXISTS `client`;
@@ -80,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `client` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commande`
+-- Table structure for table `commande`
 --
 
 DROP TABLE IF EXISTS `commande`;
@@ -97,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `commande` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commentaire`
+-- Table structure for table `commentaire`
 --
 
 DROP TABLE IF EXISTS `commentaire`;
@@ -112,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `commentaire`
+-- Dumping data for table `commentaire`
 --
 
 INSERT INTO `commentaire` (`id`, `nom`, `email`, `telephone`, `objet`, `message`) VALUES
@@ -125,7 +123,7 @@ INSERT INTO `commentaire` (`id`, `nom`, `email`, `telephone`, `objet`, `message`
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pays`
+-- Table structure for table `pays`
 --
 
 DROP TABLE IF EXISTS `pays`;
@@ -139,38 +137,66 @@ CREATE TABLE IF NOT EXISTS `pays` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `produit`
+-- Table structure for table `produit`
 --
 
 DROP TABLE IF EXISTS `produit`;
 CREATE TABLE IF NOT EXISTS `produit` (
   `idproduit` int(11) NOT NULL AUTO_INCREMENT,
-  `vendeur_idvendeur` int(11) NOT NULL,
+  `vendeur` int(11) NOT NULL,
   `nom_produit` varchar(45) DEFAULT NULL,
   `prix_u` varchar(45) DEFAULT NULL,
-  `type_produit_idtype_produit` int(11) NOT NULL,
+  `qte_produit` int(11) NOT NULL,
+  `type_produit` int(11) NOT NULL,
+  `details_produit` text,
+  `Date_enreg` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `img_produit` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`idproduit`),
-  KEY `fk_produit_vendeur_idx` (`vendeur_idvendeur`),
-  KEY `fk_produit_type_produit1_idx` (`type_produit_idtype_produit`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `fk_produit_vendeur_idx` (`vendeur`),
+  KEY `fk_produit_type_produit1_idx` (`type_produit`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `produit`
+--
+
+INSERT INTO `produit` (`idproduit`, `vendeur`, `nom_produit`, `prix_u`, `qte_produit`, `type_produit`, `details_produit`, `Date_enreg`, `img_produit`) VALUES
+(1, 1, 'Blé', '400', 50, 2, 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.', '2019-07-15 02:52:30', 'aviguide.png'),
+(2, 1, 'Sorgho', '500', 50, 2, 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?', '2019-07-15 03:13:02', 'aviguide.png'),
+(3, 1, 'Sorgho', '500', 20, 2, 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.', '2019-07-18 12:43:40', 'Prod_2_Sorgho3.jpg'),
+(4, 1, 'Poussins de chair', '500', 100, 1, 'Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.', '2019-07-18 15:26:51', 'Prod_1_Poussins_de_chair.JPG'),
+(5, 1, 'Poussins', '350', 500, 1, 'Poussins de 07 jours', '2019-07-18 15:30:15', 'Prod_1_Poussins.JPG'),
+(6, 1, 'Portion de terrain', '5000', 100, 3, '', '2019-07-18 15:33:19', 'Prod_3_Terrain.png'),
+(7, 1, 'Essai', '0', 0, 6, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2019-07-18 16:23:35', 'Prod_6_Essai.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `type_produit`
+-- Table structure for table `type_produit`
 --
 
 DROP TABLE IF EXISTS `type_produit`;
 CREATE TABLE IF NOT EXISTS `type_produit` (
-  `idtype_produit` int(11) NOT NULL,
+  `idtype_produit` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idtype_produit`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `type_produit`
+--
+
+INSERT INTO `type_produit` (`idtype_produit`, `nom`) VALUES
+(1, 'Poussins'),
+(2, 'Aliments'),
+(3, 'Terrains'),
+(4, 'Médicaments'),
+(6, 'RAS');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `vendeur`
+-- Table structure for table `vendeur`
 --
 
 DROP TABLE IF EXISTS `vendeur`;
@@ -183,12 +209,19 @@ CREATE TABLE IF NOT EXISTS `vendeur` (
   `login` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idvendeur`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `vendeur`
+--
+
+INSERT INTO `vendeur` (`idvendeur`, `nom`, `prenom`, `telephone`, `email`, `login`, `password`) VALUES
+(1, 'TF', 'Carin', '697223656', 'tfcarin02@gmail.com', 'TFCarin', '7c4a8d09ca3762af61e59520943dc26494f8941b');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ville`
+-- Table structure for table `ville`
 --
 
 DROP TABLE IF EXISTS `ville`;
@@ -202,32 +235,32 @@ CREATE TABLE IF NOT EXISTS `ville` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `adresse`
+-- Constraints for table `adresse`
 --
 ALTER TABLE `adresse`
   ADD CONSTRAINT `fk_adresse_vendeur1` FOREIGN KEY (`vendeur_idvendeur`) REFERENCES `vendeur` (`idvendeur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_adresse_ville1` FOREIGN KEY (`ville_idville`) REFERENCES `ville` (`idville`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `commande`
+-- Constraints for table `commande`
 --
 ALTER TABLE `commande`
   ADD CONSTRAINT `fk_commande_client1` FOREIGN KEY (`client_idclient`) REFERENCES `client` (`idclient`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_commande_produit1` FOREIGN KEY (`produit_idproduit`) REFERENCES `produit` (`idproduit`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `produit`
+-- Constraints for table `produit`
 --
 ALTER TABLE `produit`
-  ADD CONSTRAINT `fk_produit_type_produit1` FOREIGN KEY (`type_produit_idtype_produit`) REFERENCES `type_produit` (`idtype_produit`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_produit_vendeur` FOREIGN KEY (`vendeur_idvendeur`) REFERENCES `vendeur` (`idvendeur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_produit_vendeur` FOREIGN KEY (`vendeur`) REFERENCES `vendeur` (`idvendeur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `produit_ibfk_1` FOREIGN KEY (`type_produit`) REFERENCES `type_produit` (`idtype_produit`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `ville`
+-- Constraints for table `ville`
 --
 ALTER TABLE `ville`
   ADD CONSTRAINT `fk_ville_pays1` FOREIGN KEY (`pays_idpays`) REFERENCES `pays` (`idpays`) ON DELETE NO ACTION ON UPDATE NO ACTION;

@@ -78,6 +78,7 @@ class produit extends MY_controller {
 
     public function detail_produit($id=null, $r=null, $s=null)
     {
+        $this->data["produits"] = $this->mProd->get_ProdTop();
     	$produits = $this->mProd->get_Prod($id,$r,$s);
     	$this->data['item'] = !empty($produits[0])?$produits[0]:redirect();
         $this->render('detail_produit');

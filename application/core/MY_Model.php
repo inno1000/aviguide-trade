@@ -7,7 +7,8 @@ class MY_Model extends CI_Model
         parent::__construct();
 
     }
-     public function uniqueGlobalRef($ref){
+    
+    public function uniqueGlobalRef($ref){
          //facture commission
         $query1=$this->db->query(
             "SELECT *

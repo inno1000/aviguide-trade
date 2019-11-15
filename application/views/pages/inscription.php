@@ -16,9 +16,13 @@
                </div>
                <form action="" method="post">
                    <div class="row">
-                       <div class="col-12">
+                       <div class="col-12 col-md-6">
                            <input type="text" required name="nom" value="<?php echo set_value('nom') ?>" class="form-control" placeholder="Votre nom">
                            <?php echo form_error('nom') ?>
+                       </div>
+                       <div class="col-12 col-md-6">
+                           <input type="text" required name="prenom" value="<?php echo set_value('prenom') ?>" class="form-control" placeholder="Votre prenom">
+                           <?php echo form_error('prenom') ?>
                        </div>
                        <div class="col-12 col-md-6">
                            <input type="text" required name="telephone" value="<?php echo set_value('telephone') ?>" class="form-control" placeholder="Numéro téléphone">
@@ -28,7 +32,15 @@
                            <input type="email" required name="email" value="<?php echo set_value('email') ?>" class="form-control" placeholder="Email">
                            <?php echo form_error('email') ?>
                        </div>
-                       <div class="col-12">
+                       <div class="col-12 col-md-6">
+                           <input type="password" required name="password" class="form-control" placeholder="Mot de passe">
+                           <?php echo form_error('password') ?>
+                       </div>
+                       <div class="col-12 col-md-6">
+                           <input type="password" required name="repassword" class="form-control" placeholder="Confirmez votre mot de passe">
+                           <?php echo form_error('repassword') ?>
+                       </div>
+                       <!-- <div class="col-12">
                            <select class="form-control">
                                <option selected>Sélectionnez votre pays</option>
                                <option value="1">Cameroun</option>
@@ -43,7 +55,7 @@
                        <div class="col-12">
                            <textarea name="activite" required class="form-control" id="Message" cols="30" rows="10" placeholder="Insérez est votre activité"><?php echo set_value('message') ?></textarea>
                            <?php echo form_error('activite') ?>
-                       </div>
+                       </div> -->
                        <div class="col-12">
                            <button type="submit" class="btn dorne-btn">Enregistrer</button>
                        </div>

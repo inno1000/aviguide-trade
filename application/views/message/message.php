@@ -89,12 +89,12 @@
                         <div class="row m-0 p-0">
                             <div class="col-9 m-0 p-1">
 
-                                <input id="text" class="mw-100 border rounded form-control" type="text" name="text" title="Type a message..." placeholder="Type a message..." required>
+                                <input id="text" class="mw-100 border form-control" type="text" name="text" title="Type a message..." placeholder="Type a message..." required>
 
                             </div>
                             <div class="col-3 m-0 p-1">
 
-                                <button class="btn btn-outline-secondary rounded border w-100" title="Gönder!" style="padding-right: 16px;"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                                <button class="btn btn-outline-secondary border w-100" title="Gönder!" style="padding-right: 16px;"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 
                             </div>
                         </div>

@@ -55,6 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['publications'] = "welcome/publications";
 $route['contacts'] = "welcome/contacts";
-$route['annuaire'] = "welcome/annuaire";
-$route['inscription'] = "welcome/inscription";
-$route['connexion'] = "welcome/connexion";
+// $route['annuaire'] = "welcome/annuaire";

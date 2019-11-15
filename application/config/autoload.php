@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'assets','moment','html2pdf','session');
+$autoload['helper'] = array('url', 'define', 'assets', 'moment', 'html2pdf', 'session', 'debug');
 
 /*
 | -------------------------------------------------------------------

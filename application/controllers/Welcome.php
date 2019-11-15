@@ -11,21 +11,60 @@ class Welcome extends MY_Controller {
         $this->load->library('form_validation');
         $this->load->model('Inscription_model','mIns');
         $this->load->model('Settings_model','mSet');
+        $this->load->model('produit_model','mProd');
+        $this->load->model('annuaire_model','mAnnuaire');
+        $this->load->library('pagination');
     }
-
-    public function index()
+	
+	public function index()
 	{
-		$this->render();
-
+        $this->Accueil();
 	}
 
-    public function publications()
+    public function Accueil()
     {
+        $this->data["produits"] = $this->mProd->get_ProdTop();
+        $this->render('index', "Accueil");
+    }
+
+    public function publications($id=null)
+    {
+        $config = array(
+            'base_url' => site_url() .'/welcome/publications',
+            'total_rows' => $this->mProd->record_count(),
+            'per_page' => 8,
+            'use_page_numbers' => TRUE,
+            'full_tag_open' => '<ul class="pagination">',
+            'full_tag_close' => '</ul>',
+            'first_link' => '<<',
+            'first_tag_open' => '<li class="page-item disabled">',
+            'first_tag_close' => '</li>',
+            'last_link' => '>>',
+            'last_tag_open' => '<li class="page-item">',
+            'last_tag_close' => '</li>',
+            'next_link' => '>',
+            'next_tag_open' => '<li class="page-item">',
+            'next_tag_close' => '</li>',
+            'prev_link' => '<',
+            'prev_tag_open' => '<li class="page-item">',
+            'prev_tag_close' => '</li>',
+            'cur_tag_open' => '<li class="page-item active"><a class="page-link" href="#">',
+            'cur_tag_close' => '</a></li>',
+            'num_tag_open' => '<li class="page-item"> ',
+            'num_tag_close' => '</li>',
+            'attributes' => array('class' => 'page-link'),
+        );
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment(2))? $this->uri->segment(2) : 0;
+        $this->data["produits"] = $this->mProd->get_Prod($id, $config["per_page"], $page);
+        $this->data["links"] = $this->pagination->create_links();
         $this->render('publications');
     }
 
     public function contacts()
     {
+        $this->data["produits"] = $this->mProd->get_ProdTop();
         $this->form_validation->set_error_delimiters('<p class="form_erreur text-danger small">', '<p>');
         $this->form_validation->set_rules('nom', 'nom', 'trim|required');
         $this->form_validation->set_rules('email', 'email', 'trim');
@@ -57,26 +96,47 @@ class Welcome extends MY_Controller {
                 set_flash_data(array('error',"Problème lors de l'envoi du message!<br>Contactez l'administrateur si le problème persiste"));
                 redirect('Welcome/contacts');
             }
-
-
-
-
         }
         $this->render('contacts');
     }
 
+
     public function annuaire()
     {
+        $config = array(
+            'base_url' => site_url() .'/welcome/annuaire',
+            'total_rows' => $this->mAnnuaire->record_count(),
+            'per_page' => 3,
+            'use_page_numbers' => TRUE,
+            'full_tag_open' => '<ul class="pagination">',
+            'full_tag_close' => '</ul>',
+            'first_link' => '<<',
+            'first_tag_open' => '<li class="page-item disabled">',
+            'first_tag_close' => '</li>',
+            'last_link' => '>>',
+            'last_tag_open' => '<li class="page-item">',
+            'last_tag_close' => '</li>',
+            'next_link' => '>',
+            'next_tag_open' => '<li class="page-item">',
+            'next_tag_close' => '</li>',
+            'prev_link' => '<',
+            'prev_tag_open' => '<li class="page-item">',
+            'prev_tag_close' => '</li>',
+            'cur_tag_open' => '<li class="page-item active"><a class="page-link" href="#">',
+            'cur_tag_close' => '</a></li>',
+            'num_tag_open' => '<li class="page-item"> ',
+            'num_tag_close' => '</li>',
+            'attributes' => array('class' => 'page-link'),
+        );
+        $this->pagination->initialize($config);
+
+        $page = ($this->uri->segment(2))? $this->uri->segment(2) : 0;
+        $this->data["contact"] = $this->mAnnuaire->get_Contact($config["per_page"], $page);
+        $this->data["links"] = $this->pagination->create_links();
         $this->render('annuaire');
     }
-
-    public function inscription()
+    public function add_annuaire()
     {
-        $this->render('inscription');
-    }
-
-    public function connexion()
-    {
-        $this->render('connexion');
+        $this->render('enreg_contacts');
     }
 }
